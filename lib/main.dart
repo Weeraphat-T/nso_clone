@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nso_clone/screens/home_screen.dart';
-import 'package:nso_clone/widgets/header_navbar.dart';
+import 'package:nso_clone/screens/on_boarding_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+bool show = true;
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final prefs = await SharedPreferences.getInstance();
+  show = prefs.getBool('ON BOARDING') ?? true;
+
   runApp(const MyApp());
 }
 
@@ -12,9 +21,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Modern Profile 2024",
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      theme: ThemeData(textTheme: GoogleFonts.lexendTextTheme()),
+      title: 'My Travel 1.0',
+      home: show ? const OnboardingScreen() : Home_Screen(),
     );
   }
 }

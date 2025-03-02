@@ -8,46 +8,79 @@ class DataIconProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        IconProfile(
-          title: "MT",
-          color: Colors.white,
-          image: 'assets/MyProfile.jpg',
-        ),
-        SizedBox(
-          width: 30,
-        ),
-        IconProfile(
-          title: "River",
-          color: Colors.white,
-          image: 'assets/MyProfile.jpg',
-        ),
-        SizedBox(
-          width: 30,
-        ),
-        IconProfile(
-          title: "Lava",
-          color: Colors.white,
-          image: 'assets/MyProfile.jpg',
-        ),
-        SizedBox(
-          width: 30,
-        ),
-        IconProfile(
-          title: "Beach",
-          color: Colors.white,
-          image: 'assets/MyProfile.jpg',
-        ),
-        SizedBox(
-          width: 30,
-        ),
-        IconProfile(
-          title: "Sunset",
-          color: Colors.white,
-          image: 'assets/MyProfile.jpg',
-        ),
-      ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: const Row(
+        children: [
+          IconProfile(
+            title: "MT",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "River",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "Lava",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "Beach",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "Sunset",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "MT",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "River",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "Lava",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "Beach",
+            image: 'assets/MyProfile.jpg',
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          IconProfile(
+            title: "Sunset",
+            image: 'assets/MyProfile.jpg',
+          ),
+        ],
+      ),
     );
   }
 }
@@ -56,40 +89,48 @@ class IconProfile extends StatelessWidget {
   const IconProfile({
     super.key,
     required this.title,
-    required this.color,
     required this.image,
+    this.onTap,
   });
 
   final String title;
-  final Color color;
   final String image;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 80,
-          width: 80,
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            height: 120,
+            width: 120,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              shape: BoxShape.circle,
+            ),
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              backgroundImage: AssetImage(image),
+            ),
           ),
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundImage: AssetImage(image),
-            radius: 15,
+          const SizedBox(
+            height: 1,
           ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Text(
-          title,
-          style: GoogleFonts.roboto(
-              fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),
-        ),
-      ],
+          SizedBox(
+            child: Text(
+              title,
+              style: GoogleFonts.roboto(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey,
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
