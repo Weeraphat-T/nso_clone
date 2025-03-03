@@ -8,7 +8,7 @@ class Starting_Voice_Chat_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromRGBO(13, 13, 13, 1),
       appBar: AppBar(
         toolbarHeight: 80,
         backgroundColor: Colors.transparent,

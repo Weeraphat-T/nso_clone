@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nso_clone/screens/friend_list_screen.dart';
+import 'package:nso_clone/screens/settings_screen.dart';
 import 'package:nso_clone/screens/starting_voice_chat_screen.dart';
 import 'package:nso_clone/widgets/icon_game.dart';
 import 'package:nso_clone/widgets/icon_profile.dart';
@@ -10,7 +12,7 @@ class Home_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromRGBO(13, 13, 13, 1),
       appBar: AppBar(
         toolbarHeight: 80,
         backgroundColor: Colors.transparent,
@@ -19,17 +21,27 @@ class Home_Screen extends StatelessWidget {
         ),
         leadingWidth: 200,
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(17.0),
-            child: Container(
-              height: 68,
-              width: 68,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                shape: BoxShape.circle,
-              ),
-              child: CircleAvatar(
-                backgroundImage: AssetImage("assets/MyProfile.jpg"),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Settings_Screen(),
+                ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(17.0),
+              child: Container(
+                height: 68,
+                width: 68,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  shape: BoxShape.circle,
+                ),
+                child: CircleAvatar(
+                  backgroundImage: AssetImage("assets/MyProfile.jpg"),
+                ),
               ),
             ),
           ),
@@ -60,7 +72,14 @@ class Home_Screen extends StatelessWidget {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Friend_List_Screen(),
+                        ),
+                      );
+                    },
                     child: Row(
                       children: [
                         Text(
@@ -68,7 +87,8 @@ class Home_Screen extends StatelessWidget {
                           style: GoogleFonts.roboto(
                               color: Colors.grey,
                               fontSize: 20,
-                              fontWeight: FontWeight.w500),
+                              fontWeight: FontWeight.w500
+                          ),
                         ),
                         SizedBox(
                           width: 1,
@@ -95,7 +115,8 @@ class Home_Screen extends StatelessWidget {
                 style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 20,
-                    fontWeight: FontWeight.w500),
+                    fontWeight: FontWeight.w500
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -109,7 +130,8 @@ class Home_Screen extends StatelessWidget {
                 style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 20,
-                    fontWeight: FontWeight.w500),
+                    fontWeight: FontWeight.w500
+                ),
               ),
               const SizedBox(
                 height: 5,
