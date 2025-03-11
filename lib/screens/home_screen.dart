@@ -106,7 +106,7 @@ class Home_Screen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              DataIconProfile(),
+              DataIconProfile_I(),
               const SizedBox(
                 height: 100,
               ),
