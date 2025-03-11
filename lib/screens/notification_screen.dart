@@ -34,7 +34,7 @@ class Notifications_Screen extends StatelessWidget {
               height: 1.5,
             ),
             Text(
-              "Who do you want to see your online status?",
+              "Notification",
               style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontSize: 25,

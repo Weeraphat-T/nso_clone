@@ -8,101 +8,84 @@ class Starting_Voice_Chat_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(13, 13, 13, 1),
+      backgroundColor: const Color.fromRGBO(13, 13, 13, 1),
       appBar: AppBar(
         toolbarHeight: 80,
         backgroundColor: Colors.transparent,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Home_Screen(),
-              ),
-            );
+            Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back,
             size: 40.0,
             color: Colors.white,
           ),
         ),
-        title: Column(
-          children: [
-            const SizedBox(
-              height: 1.5,
-            ),
-            Text(
-              "Starting Voice Chat",
-              style: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500),
-            ),
-          ],
+        title: Text(
+          "Starting Voice Chat",
+          style: GoogleFonts.roboto(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 130,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/Number1.png",
-                ),
-                SizedBox(
-                  width: 13,
-                ),
-                Text(
-                  "On your Nintendo Switch console, open a software title that\nsupports voice chat. Then open the specified mode.",
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 25,
-                    height: 1.1,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0), // ป้องกัน text ชิดขอบ
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 130),
+              
+              // ขั้นตอนที่ 1
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("assets/Number1.png"),
+                  const SizedBox(width: 13),
+                  Expanded( // ใช้ Expanded เพื่อป้องกัน overflow
+                    child: Text(
+                      "On your Nintendo Switch console, open a software title that\nsupports voice chat. Then open the specified mode.",
+                      style: GoogleFonts.roboto(
+                        color: Colors.white,
+                        fontSize: 20,
+                        height: 1.3,
+                      ),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 100,
-            ),
-            Image.asset("assets/SVC-1.png"),
-            SizedBox(
-              height: 150,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/Number2.png",
-                ),
-                SizedBox(
-                  width: 13,
-                ),
-                Text(
-                  "You can start using voice chat immediately through the app!\n",
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 25,
-                    height: 0.7,
+                ],
+              ),
+              
+              const SizedBox(height: 60),
+              Image.asset("assets/SVC-1.png"),
+              const SizedBox(height: 120),
+              
+              // ขั้นตอนที่ 2
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("assets/Number2.png"),
+                  const SizedBox(width: 13),
+                  Expanded( // ใช้ Expanded เพื่อป้องกัน overflow
+                    child: Text(
+                      "You can start using voice chat immediately through the app!",
+                      style: GoogleFonts.roboto(
+                        color: Colors.white,
+                        fontSize: 20,
+                        height: 1.3,
+                      ),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 60,
-            ),
-            Image.asset("assets/SVC-2.png"),
-            const SizedBox(
-              height: 50,
-            ),
-          ],
+                ],
+              ),
+              
+              const SizedBox(height: 60),
+              Image.asset("assets/SVC-2.png"),
+              const SizedBox(height: 50),
+            ],
+          ),
         ),
       ),
     );

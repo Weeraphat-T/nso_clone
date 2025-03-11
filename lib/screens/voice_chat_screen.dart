@@ -2,42 +2,62 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nso_clone/screens/settings_screen.dart';
 
-class Voice_Chat_Screen extends StatelessWidget {
+class Voice_Chat_Screen extends StatefulWidget {
   const Voice_Chat_Screen({super.key});
+
+  @override
+  _VoiceChatScreenState createState() => _VoiceChatScreenState();
+}
+
+class _VoiceChatScreenState extends State<Voice_Chat_Screen> {
+  bool isSwitched = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(13, 13, 13, 1),
+      backgroundColor: const Color.fromRGBO(13, 13, 13, 1),
       appBar: AppBar(
         toolbarHeight: 80,
         backgroundColor: Colors.transparent,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Settings_Screen(),
-              ),
-            );
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, size: 40.0, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
           },
-          child: Icon(
-            Icons.arrow_back,
-            size: 40.0,
+        ),
+        title: Text(
+          "Voice Chat",
+          style: GoogleFonts.roboto(
             color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
           ),
         ),
-        title: Column(
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        child: Column(
           children: [
-            const SizedBox(
-              height: 1.5,
-            ),
-            Text(
-              "Who do you want to see your online status?",
-              style: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween, // ทำให้เว้นระยะอัตโนมัติ
+              children: [
+                Text(
+                  'Start Alert',
+                  style: GoogleFonts.roboto(
+                    color: Colors.white,
+                    fontSize: 22,
+                  ),
+                ),
+                Switch.adaptive(
+                  value: isSwitched,
+                  activeColor: Colors.blue,
+                  onChanged: (bool value) {
+                    setState(() {
+                      isSwitched = value;
+                    });
+                  },
+                ),
+              ],
             ),
           ],
         ),
@@ -45,3 +65,4 @@ class Voice_Chat_Screen extends StatelessWidget {
     );
   }
 }
+

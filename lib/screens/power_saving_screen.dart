@@ -34,7 +34,7 @@ class Power_Saving_Screen extends StatelessWidget {
               height: 1.5,
             ),
             Text(
-              "Who do you want to see your online status?",
+              "Power Saving",
               style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontSize: 25,
