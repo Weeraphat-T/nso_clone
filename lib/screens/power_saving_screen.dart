@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nso_clone/screens/settings_screen.dart';
+import 'package:nso_clone/widgets/mybutton.dart';
 
 class Power_Saving_Screen extends StatelessWidget {
   const Power_Saving_Screen({super.key});
@@ -40,6 +41,32 @@ class Power_Saving_Screen extends StatelessWidget {
                   fontWeight: FontWeight.w500),
             ),
           ],
+        ),
+      ),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: [
+            Text(
+              'Battery optimisation is currently activated',
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+            Text(
+              'If The Andriod power-saving features (battery optimisation)\nare active, voice chat will not be available during sleep mode.\nTo use voice chat during sleep mode, deactivate battery\noptimisation for this app.',
+              style: GoogleFonts.roboto(
+                color: Colors.grey,
+                fontSize: 20,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            MyButton(
+                onTap: () {},
+                labelText: 'Change Settings',
+              ),
+            ],
         ),
       ),
     );

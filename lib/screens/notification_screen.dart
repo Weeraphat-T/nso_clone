@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nso_clone/screens/settings_screen.dart';
+import 'package:nso_clone/widgets/mybutton.dart';
 
 class Notifications_Screen extends StatelessWidget {
   const Notifications_Screen({super.key});
@@ -40,6 +41,31 @@ class Notifications_Screen extends StatelessWidget {
                   fontWeight: FontWeight.w500),
             ),
           ],
+        ),
+      ),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: [
+            Text(
+              'All push notifications are enabled',
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+            Text(
+              'You can change the notification settings for this app on your smart devices setting menu',
+              style: GoogleFonts.roboto(
+                color: Colors.grey,
+                fontSize: 20,
+              ),
+            ),
+            MyButton(
+                onTap: () {},
+                labelText: 'Change Settings',
+              ),
+            ],
         ),
       ),
     );

@@ -42,6 +42,15 @@ class Friend_List_Screen extends StatelessWidget {
             ),
           ],
         ),
+        actions: [
+          GestureDetector(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(17.0),
+              child: Icon(Icons.info_outline,color: Colors.white,size: 40.0,)
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
