@@ -59,6 +59,13 @@ class _VoiceChatScreenState extends State<Voice_Chat_Screen> {
                 ),
               ],
             ),
+            Text(
+              'The application will notify you when you can start using voice chat.',
+              style: GoogleFonts.roboto(
+                color: Colors.grey,
+                fontSize: 15,
+              ),
+            ),
           ],
         ),
       ),

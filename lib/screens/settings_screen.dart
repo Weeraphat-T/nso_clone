@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nso_clone/screens/friend_code_screen.dart';
 import 'package:nso_clone/screens/home_screen.dart';
 import 'package:nso_clone/screens/notification_screen.dart';
 import 'package:nso_clone/screens/online_status.dart';
@@ -105,31 +106,41 @@ class Settings_Screen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Friend Requests
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5.0),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Friend_Code_Screen(),
                     ),
-                    child: Text(
-                      '123',
-                      style: const TextStyle(color: Colors.black, fontSize: 16),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Text(
+                        '123',
+                        style: const TextStyle(color: Colors.black, fontSize: 16),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    "Friend requests",
-                    style: GoogleFonts.roboto(
-                      color: Colors.white,
-                      fontSize: 18,
+                    const SizedBox(width: 8),
+                    Text(
+                      "Friend requests",
+                      style: GoogleFonts.roboto(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
                     ),
-                  ),
-                  const Spacer(),
-                  const Icon(Icons.arrow_forward, color: Colors.grey),
-                ],
+                    const Spacer(),
+                    const Icon(Icons.arrow_forward, color: Colors.grey),
+                  ],
+                ),
               ),
               const SizedBox(height: 40),
 
